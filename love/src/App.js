@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
  
- {status? <Dashboard /> :      <Login status={status} changeStatus={changeStatus} />}
+ {status? <Dashboard /> :<Login status={status} changeStatus={changeStatus} />}
  
     </div>
   );

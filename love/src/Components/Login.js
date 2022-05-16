@@ -12,19 +12,29 @@ const Login = ({status,changeStatus}) => {
 const [name,setName] =useState("")
 const [password,setPassword] =useState("")
 
-const [userDetails,setuserDetails] =useState({ username:"Mendy" ,password:"Mage1234"})
+const [userDetails,setuserDetails] =useState({ username:"Mendy" ,userpassword:"Mage1234"})
+const [errStatus,setErrStatus] =useState(true)
 
-
-console.log(JSON.stringify(userDetails))
 
 useEffect(()=>{
 
-    localStorage.setItem('user' ,"hello")
+    localStorage.setItem('user' ,JSON.stringify(userDetails))
 },[])
+
+let {username,userpassword} =JSON.parse(localStorage.getItem('user'))
+
 const userInChangeHandler =() =>{
 
-
-
+debugger;
+if(name === username && password === userpassword)
+{
+    let storedata ={username,userpassword}
+    sessionStorage.setItem('userData' ,JSON.stringify(storedata))
+    changeStatus()
+}
+else {
+setErrStatus(false)
+}
 }
 
     return (
@@ -36,12 +46,14 @@ const userInChangeHandler =() =>{
                     <div className="input-field">
                         <label>User Name*</label>
                         <input value={name} type="text" required  onChange={(e)=>setName(e.target.value)}  placeholder="enter your name" />
+                        {errStatus ? null :<span><p>Please enter correct username</p></span>}
                         </div>
                         <div className="input-field">
                         <label>Password*</label>
                         <input value={password} type="password" required onChange={(e)=>setPassword(e.target.value)} placeholder="enter your password" />
+                        {errStatus ? null :<span><p>Please enter correct Password</p></span>}
                     </div>
-                    <button onClick={()=>changeStatus()}>Login</button>
+                    <button onClick={userInChangeHandler}>Login</button>
                    <div className="logo">
                     <h4>Forgot Password</h4>
                       <img src={img2} />
