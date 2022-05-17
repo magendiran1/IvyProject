@@ -4,6 +4,7 @@ import './App.css';
 import Dashboard from './Components/Dashboard';
 
 import Login from './Components/Login'
+import SignUp from './Components/Signup';
 
 function App() {
 
@@ -13,11 +14,12 @@ function App() {
     setStatus(!status)
   }
   return (
-    <div className="App">
+    < >
  
  {status? <Dashboard /> :<Login status={status} changeStatus={changeStatus} />}
  
-    </div>
+  {/* <SignUp /> */}
+    </>
   );
 }
 

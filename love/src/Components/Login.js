@@ -7,62 +7,91 @@ import { useEffect, useState } from 'react'
 
 
 
-const Login = ({status,changeStatus}) => {
+const Login = ({ status, changeStatus }) => {
 
-const [name,setName] =useState("")
-const [password,setPassword] =useState("")
+    const [name, setName] = useState("")
+    const [password, setPassword] = useState("")
 
-const [userDetails,setuserDetails] =useState({ username:"Mendy" ,userpassword:"Mage1234"})
-const [errStatus,setErrStatus] =useState(true)
+    const [userDetails, setuserDetails] = useState({ username: "Mendy", userpassword: "Mage1234" })
+    const [errStatus, setErrStatus] = useState(true)
 
 
-useEffect(()=>{
+    useEffect(() => {
 
-    localStorage.setItem('user' ,JSON.stringify(userDetails))
-},[])
+        localStorage.setItem('user', JSON.stringify(userDetails))
+    }, [])
 
-let {username,userpassword} =JSON.parse(localStorage.getItem('user'))
+    let { username, userpassword } = JSON.parse(localStorage.getItem('user'))
 
-const userInChangeHandler =() =>{
+    const userInChangeHandler = () => {
 
-debugger;
-if(name === username && password === userpassword)
-{
-    let storedata ={username,userpassword}
-    sessionStorage.setItem('userData' ,JSON.stringify(storedata))
-    changeStatus()
-}
-else {
-setErrStatus(false)
-}
-}
+      
+        if (name === username && password === userpassword) {
+            let storedata = { username, userpassword }
+            sessionStorage.setItem('userData', JSON.stringify(storedata))
+            changeStatus()
+        }
+        else {
+            setErrStatus(false)
+        }
+    }
 
     return (
-        <div>
+        // <div>
 
-            <section className="login">
-                <div className="container">
-                    <img src={img1} alt="Logo" />
-                    <div className="input-field">
-                        <label>User Name*</label>
-                        <input value={name} type="text" required  onChange={(e)=>setName(e.target.value)}  placeholder="enter your name" />
-                        {errStatus ? null :<span><p>Please enter correct username</p></span>}
-                        </div>
-                        <div className="input-field">
-                        <label>Password*</label>
-                        <input value={password} type="password" required onChange={(e)=>setPassword(e.target.value)} placeholder="enter your password" />
-                        {errStatus ? null :<span><p>Please enter correct Password</p></span>}
+
+        //     <section className="login">
+        //         <div className="container">
+        //             <img src={img1} alt="Logo" />
+        //             <div className="input-field">
+        //             <i class="fas fa-user"></i>
+        //                 <label>User Name*</label>
+        //                 <input value={name} type="text" required  onChange={(e)=>setName(e.target.value)}  placeholder="enter your name" />
+        //                 {errStatus ? null :<span><p>Please enter correct username</p></span>}
+        //                 </div>
+        //                 <div className="input-field">
+        //                 <label>Password*</label>
+        //                 <input value={password} type="password" required onChange={(e)=>setPassword(e.target.value)} placeholder="enter your password" />
+        //                 {errStatus ? null :<span><p>Please enter correct Password</p></span>}
+        //             </div>
+        //             <button onClick={userInChangeHandler}>Login</button>
+        //            <div className="logo">
+        //             <h4>Forgot Password</h4>
+        //               <img src={img2} />
+        //               </div>
+        //         </div>
+
+        //     </section>
+
+        // </div>
+          
+        <div className='container'>
+        {errStatus ? null :<div className='errormessage'> <h3>Invalid User Name Or Password.</h3></div>}
+
+            <div className='screen'>
+
+            <img src={img1} alt="Logo" />
+                <form className='login'>
+                    <div className='input_field'>
+                       <label>User Name *</label>
+                        <input type="text" onChange={(e)=>setName(e.target.value)} required="" placeholder='user name/Email' />
+                    </div>
+                    <div className='input_field' >
+                    <label>Password *</label>
+                        <input type="Password" onChange={(e)=>setPassword(e.target.value)} required="" placeholder='Password' />
                     </div>
                     <button onClick={userInChangeHandler}>Login</button>
-                   <div className="logo">
+                    <div className='logo'>
                     <h4>Forgot Password</h4>
-                      <img src={img2} />
-                      </div>
-                </div>
+                    <img src={img2} />
+                    </div>
+                </form>
 
-            </section>
+
+            </div>
 
         </div>
+
     )
 }
 
