@@ -1,0 +1,25 @@
+.paper-cont {
+    height: 70vh;
+    width: 300px;
+    padding: 20px;
+    margin: 50px auto;
+}
+
+.avatar {
+    background: green !important;
+}
+
+.btn {
+    margin: 10px auto !important;
+}
+
+.forgot-account {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px auto !important;
+}
+
+.input-field {
+    display: flex;
+    align-items: flex-end;
+}

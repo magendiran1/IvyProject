@@ -1,0 +1,31 @@
+.container {
+    width: 360px;
+    display: flex;
+    flex-direction: row;
+}
+
+.banner {
+    width: 360px;
+    height: 500px;
+    object-fit: cover;
+}
+
+.movie-name {
+    font-size: 24px;
+    margin: 8px 0px;
+    font-weight: 600;
+}
+
+h4 {
+    padding: 10px;
+    line-height: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.likes {
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    gap: 10px;
+    font-weight: 600;
+}
