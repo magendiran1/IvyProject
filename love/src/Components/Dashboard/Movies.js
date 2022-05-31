@@ -6,7 +6,7 @@ import MovieList from './MovieList'
 const Movies = () => {
     const [movies, setMovies] = useState([])
     const getMoviesList = () => {
-        fetch("https://615042b3a706cd00179b73dc.mockapi.io/movies/s")
+        fetch("https://615042b3a706cd00179b73dc.mockapi.io/movies")
             .then((res) => { if (res.ok) return res.json(); else  { throw new Error("test")} })
             .then((resdata) => setMovies(resdata))
             .catch((e) => console.log(e))
