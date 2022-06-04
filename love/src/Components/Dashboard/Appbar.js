@@ -12,15 +12,11 @@ const Appbar = () => {
     return (
         <AppBar position='static'>
             <Toolbar className='menu_items' >
-                <div >
-                    <Button onClick={() => history.push('/Calculator')} size="medium" variant="contained">Calculator</Button>
-                    <Button onClick={() => history.push('/Movies')} size="medium" variant="contained">Movies</Button>
-                    <Button size="medium" variant="contained">Calculator</Button>
-                    <Button size="medium" variant="contained">Calculator</Button>
-                </div>
-                <div  >
-                    <Button size="medium" variant="contained">LogOut</Button>
-                </div>
+                <Button onClick={() => history.push('/Calculator')} size="medium" variant="contained">Calculator</Button>
+                <Button onClick={() => history.push('/Movies')} size="medium" variant="contained">Movies</Button>
+                <Button onClick={() => history.push('/Addmovie')} size="medium" variant="contained">Addmovie</Button>
+                <Button   size="medium" variant="contained">Calculator</Button>
+                <Button size="medium" variant="contained">LogOut</Button>
             </Toolbar>
         </AppBar>
     )

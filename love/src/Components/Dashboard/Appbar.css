@@ -1,4 +1,8 @@
 .menu_items {
-    display: flex;
+    display: flex !important;
     justify-content: space-between;
+}
+
+.Main_menu {
+    gap: 20px;
 }

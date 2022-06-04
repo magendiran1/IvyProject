@@ -131,7 +131,7 @@ debugger;
     }
     return (
         <div className="app">
-            <div className="container">
+            <div className="container-calc">
                 <div className="display">
                     {result ? <span>{result}</span> : ""} {calc || "0"}
                 </div>
