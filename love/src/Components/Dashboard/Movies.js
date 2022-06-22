@@ -1,6 +1,6 @@
 
+import axios from "axios"
 import { useState, useEffect } from "react"
-
 
 import MovieList from './MovieList'
 const Movies = () => {
@@ -15,21 +15,23 @@ const Movies = () => {
 
     // }
 
-  
+
 
     useEffect(() => {
+        // fetch("https://615042b3a706cd00179b73dc.mockapi.io/movies")
+        //     .then((res) => res.json())
+        //     .then((resData) => setMovies(resData))
+        //     .catch((e) => setMovies([]))
+        const movieSource = axios.CancelToken.source();
+        axios.get("https://615042b3a706cd00179b73dc.mockapi.io/movies", { cancelToken: movieSource.token })
+            .then((res) => {
+                setMovies(res.data)
+            })
+            .catch(e => setMovies([]))
 
-        const abortCtrl = new AbortController();
-        const opts = { signal: abortCtrl.signal };
-
-        fetch("https://615042b3a706cd00179b73dc.mockapi.io/movies",opts)
-        .then((res) => res.json())
-        .then((resdata) => setMovies(resdata))
-        .catch((e) => setMovies([]))
-
-  return ()=>{
-
-    abortCtrl.abort()}
+        return () => {
+            movieSource.cancel("Landing Component got unmounted")
+        }
     }, [])
 
     const removeMovie = (id) => {

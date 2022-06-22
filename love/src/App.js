@@ -8,13 +8,14 @@ import Addmovie from './Components/Dashboard/AddMovies'
 
 import Movies  from './Components/Dashboard/Movies';
 import EditMovie from './Components/Dashboard/EditMovie'
+import Counter from './Components/CentralState/Counter';
 
 function App() {
 
    const [userLoggedIn, setUserLoggedIN] =useState(false)
 
 return(
-
+<>
 <Router>
 <Link to="/" />
 <Link to="/Signup" />
@@ -23,8 +24,7 @@ return(
 <Link to="/Movies" />
 <Link to="/Addmovie" />
 <Link to="/EditMovie" />
-
-
+<Link to="/Counter" />
 
 <Switch>
   <Route exact path="/" ><Loginpage /></Route>
@@ -34,11 +34,12 @@ return(
   <Route path="/Movies"><Movies /></Route>
   <Route path="/Addmovie"><Addmovie /></Route>
   <Route path="/EditMovie/:id"><EditMovie /></Route>
-
+  <Route path="/Counter"><Counter /></Route>
 
 </Switch>
-
 </Router>
+
+</>
 
 
 )

@@ -16,7 +16,7 @@ const Appbar = () => {
                 <Button onClick={() => history.push('/Movies')} size="medium" variant="contained">Movies</Button>
                 <Button onClick={() => history.push('/Addmovie')} size="medium" variant="contained">Addmovie</Button>
                 <Button   size="medium" variant="contained">Calculator</Button>
-                <Button size="medium" variant="contained">LogOut</Button>
+                <Button onClick={() => history.push('/Counter')} size="medium" variant="contained">Counter</Button>
             </Toolbar>
         </AppBar>
     )
